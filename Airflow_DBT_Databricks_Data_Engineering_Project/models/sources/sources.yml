@@ -1,0 +1,14 @@
+sources:
+  - name: ghost_db
+    database: ghost  
+    schema: raw  
+    tables:
+      - name: customers
+      - name: stores
+      - name: products
+      - name: employees
+      - name: orders
+      - name: order_items
+
+
+# https://docs.getdbt.com/docs/build/sources      

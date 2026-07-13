@@ -1,0 +1,11 @@
+airflow_dbt_databricks_data_engineering_project:
+  outputs:
+    dev:
+      catalog: ghost
+      host: dbc-97b5e1b9-f7e2.cloud.databricks.com
+      http_path: /sql/1.0/warehouses/ecef9781dd216b7e
+      schema: dbt_schema
+      threads: 1
+      token: <DATABRICKS_TOKEN>
+      type: databricks
+  target: dev

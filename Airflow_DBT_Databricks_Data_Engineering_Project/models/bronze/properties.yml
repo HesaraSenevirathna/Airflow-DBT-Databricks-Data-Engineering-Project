@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: bronze_products
+    columns:
+      - name: product_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+                warn_if: "> 0"
+                error_if: "> 10"
+
+          - unique:
+              config:
+                where: "price > 0"
+                severity: warn
+                warn_if: "> 0"
+                error_if: "> 5"
+
+# bronze_products.product_id is not null and unique only where price > 0
+
+  - name: bronze_orders
+    columns:
+      - name: order_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+                warn_if: "> 0"
+                error_if: "> 10"
+
+          - unique:
+              config:
+                severity: warn
+                warn_if: "> 0"
+                error_if: "> 5"
+
+# bronze_orders.order_id is not null and unique
+# warn_if: "> 0" If more than 0 rows fail this test,produce a warning.
+# error_if: "> 5" If more than 5 rows fail this test,produce an error.
